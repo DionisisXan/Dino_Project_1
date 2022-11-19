@@ -38,38 +38,32 @@ function Dinos (species, weight, height, diet, where, when, fact) {
         Number(document.getElementById("feet").value) * 12;
         const weight = document.getElementById('weight').value;
         const diet = document.getElementById('diet').value;
-        return { name, height, weight, diet };
-         
-    };
-       
-
- 
-
-
-
-     function manKind() {
-        this.name = name;
-        this.feet = feet;
-        this.inches = inches;
-        this.weight = weight;
-        this.diet = diet; 
         
-   
+        return {name, height, weight, diet};  
+        
     }
-     
     
-    
-        const man = new manKind(manKindData);
 
         
+
+        function manKind(name, height, weight, diet) {
+            this.name = name;
+            this.height = height;
+            this.weight = weight;
+            this.diet = diet; 
+            
+
+        }
       
-
+            
     
+        const man = new manKind((manKindData().name), (manKindData().height), (manKindData().weight), (manKindData().diet));
 
-
- 
-
-
+                
+        const manKindWeight = man.weight;
+        const manKindHeight = man.height;
+        const manKindDiet = man.diet;
+        
 
     Dinos.prototype.compareWeight = function (manKindWeight) {
         if (this.weight > manKindWeight) {
@@ -80,7 +74,6 @@ function Dinos (species, weight, height, diet, where, when, fact) {
             return `You weigh the same as ${this.species}!`;
         }
     }
-
 
     
   
@@ -96,7 +89,7 @@ function Dinos (species, weight, height, diet, where, when, fact) {
     }
 
         
-   
+  
 
     Dinos.prototype.compareDiet = function (manKindDiet) {
         if (this.diet === manKindDiet) {
@@ -105,20 +98,34 @@ function Dinos (species, weight, height, diet, where, when, fact) {
             return `You are a ${manKindDiet} and ${this.species} is a ${this.diet}!!`;
         }   
     }
-   
-// Add random fact from dino object get multiple random elements from the array list
 
-    // addRandomFact = list => list[Math.floor((Math.random() * list.length))];
+    let dinoWeight = Dinos.prototype.compareWeight.bind(Dinos);
+    let dinoHeight = Dinos.prototype.compareHeight.bind(Dinos); 
+    let dinoDiet =  Dinos.prototype.compareDiet.bind(Dinos);
+   
+
+// Add random fact from dino object get multiple random elements from the array list
+ var randomFact = [dino1.fact, dino2.fact, dino3.fact, dino4.fact, dino5.fact, dino6.fact, dino7.fact, dinoHeight, dinoWeight, dinoDiet];
+
+
+ var chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*randomFact.length))];
+
+
+
+ 
+ 
 
         // Generate Tiles for each Dino in Array
 
         const generateTiles = function () {
             const dinoArray = [dino1, dino2, dino3, dino4, dino5, dino6, dino7, dino8];
-             
+            
             const manKindArray = [man];
-            const dinoAndManKindArray = dinoArray.concat(manKindArray);
+            dinoArray.splice(4, 0, manKindArray);
+            const dinoAndManKindArray = dinoArray;
             const grid = document.getElementById('grid');
             const manName = document.getElementById('name').value;
+            
             
             for (let i = 0; i < dinoAndManKindArray.length; i++) {
                 const tile = document.createElement('div');
@@ -131,10 +138,10 @@ function Dinos (species, weight, height, diet, where, when, fact) {
                     <img src="images/human.png" alt="human">
                     `;
                 } else {
-
+                    
                     tile.innerHTML = `<h3>${dinoAndManKindArray[i].species}</h3>
                     <img src="${dinoAndManKindArray[i].image}" alt="${dinoAndManKindArray[i].species}">
-                    <p>${dinoAndManKindArray[i].fact}</p>
+                    <p>${chooseRandomFact(randomFact)}</p>
                     `;
                     
                 }
