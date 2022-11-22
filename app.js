@@ -1,11 +1,6 @@
 
-
-
-
  /*
-
  // Create dinos objects from Constructor function Dinos. But is not the best practice to hardcode the data in the constructors objects so i created a function to fetch the data from the json file
-
     const dino1 = new Dinos('Triceratops', 13000, 114, 'herbavor', 'North America', 'Late Cretaceous', 'First discovered in 1889 by Othniel Charles Marsh');
     const dino2= new Dinos('Tyrannosaurus Rex', 11905, 144, 'carnivor', 'North America', 'Late Cretaceous', 'The largest known skull measures in at 5 feet long.');
     const dino3 = new Dinos('Anklyosaurus', 10500, 55, 'herbavor', 'North America', 'Late Cretaceous', 'Anklyosaurus survived for approximately 135 million years.');
@@ -14,7 +9,6 @@
     const dino6 = new Dinos('Elasmosaurus', 16000, 59, 'carnivor', 'North America, Europe, Asia', 'Late Cretaceous', 'Elasmosaurus was a marine reptile first discovered in Kansas.');
     const dino7= new Dinos('Pteranodon', 44, 20, 'carnivor', 'North America', 'Late Cretaceous', 'Actually a flying reptile, the Pteranodon is not a dinosaur.');
     const dino8= new Dinos('Pigeon', 0.5, 9, 'herbavor', 'World Wide', 'Holocene', 'All birds are dinosaurs.');
-
   */
 
    
@@ -27,7 +21,6 @@
 
 // Step 1: Create Dino Constructor 
 
-
 function Dinos (species, weight, height, diet, where, when, fact) {
     
     this.species = species;
@@ -38,6 +31,8 @@ function Dinos (species, weight, height, diet, where, when, fact) {
     this.when = when;
     this.fact = fact;
     this.image = `images/${species.toLowerCase()}.png`;
+
+    
 }
 
 
@@ -59,11 +54,11 @@ const dinoData = () => {
 
 // Create Dino Objects
 
-const dinoArray = [];
+
 
 const makeDinos = (dinoData) => {
 
-    
+   dinoArray = [];
   
     dinoData.Dinos.forEach((Dinos) => {
       const dino = new Dinos(
@@ -181,14 +176,15 @@ const makeDinos = (dinoData) => {
 
         // Generate Tiles for each Dino in Array
 
+        
         const generateTiles = function () {
 
-            
+         dinoArray2 = dinoArray;
             
             
             const manKindArray = [man] ;
-            dinoArray.splice(4, 0, manKindArray);
-            const dinoAndManKindArray = dinoArray;
+            dinoArray2.splice(4, 0, manKindArray);
+            const dinoAndManKindArray = dinoArray2;
             const grid = document.getElementById('grid');
             const manName = document.getElementById('name2').value;
             
@@ -234,4 +230,3 @@ const makeDinos = (dinoData) => {
         
         generateTiles();
     });
-
