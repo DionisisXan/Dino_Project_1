@@ -25,7 +25,7 @@ function Dinos (species, weight, height, diet, where, when, fact) {
 
     
 
-    const dinosCentral = [dino1, dino2, dino3, dino4, dino5, dino6, dino7];
+    const dinosCentral = [dino1, dino2, dino3, dino4, dino5, dino6, dino7, dino8];
 
     
     const manKindData = function () {
@@ -65,7 +65,7 @@ function Dinos (species, weight, height, diet, where, when, fact) {
     
     // Loop over each Dino in Array dinoCentral
 
-    let x = Math.floor((Math.random() * 8) + 1);  
+    let x = Math.floor((Math.random() * 7) + 1);  
 
    Dinos.prototype.compareWeight = function (manKindWeight) {
 
@@ -182,11 +182,8 @@ let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*random
         generateTiles();
     });
 
-
     document.getElementById("clickMe").onclick = function clicked(){
     	window.location.hash = 'reload';
     	window.location.reload( true );
     }
-    
-    
     
