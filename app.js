@@ -1,5 +1,8 @@
+ /**
+ * @constructor of Dinos
 
-function Dinos (species, weight, height, diet, where, when, fact) {
+ m*/
+    function Dinos (species, weight, height, diet, where, when, fact) {
     
     this.species = species;
     this.weight = weight;
@@ -24,53 +27,46 @@ function Dinos (species, weight, height, diet, where, when, fact) {
     const dino8= new Dinos('Pigeon', 0.5, 9, 'herbavor', 'World Wide', 'Holocene', 'All birds are dinosaurs.');
 
     
-
+    
     const dinosCentral = [dino1, dino2, dino3, dino4, dino5, dino6, dino7, dino8];
 
     
     const manKindData = function () {
 
-        const name = document.getElementById('name').value;
-        const height = Number(document.getElementById("inches").value) +
+    const name = document.getElementById('name').value;
+    const height = Number(document.getElementById("inches").value) +
         Number(document.getElementById("feet").value) * 12;
-        const weight = document.getElementById('weight').value;
-        const diet = document.getElementById('diet').value;
+    const weight = document.getElementById('weight').value;
+    const diet = document.getElementById('diet').value;
         
         return      {
             name: name,
             height: height,
             weight: weight,
             diet: diet,
-            image: 'images/human.png'
-            
-            
-
+            image: 'images/human.png'          
+           
         }
-      
-
-
+    
     }
      
-  
+    
 
     const manKindName =  manKindData.name;        
     const manKindWeight = manKindData.weight;
     const manKindHeight =   manKindData.height;
-    const manKindDiet =     manKindData.diet;
-
-           
-
-                            
+    const manKindDiet =     manKindData.diet;          
+                           
     
     
-  // Use math.random to generate a random number
+   // Use math.random to generate a random number
 
     let x = Math.floor((Math.random() * 7) + 1);  
 
 
-      // Loop over each Dino in Array dinoCentral
+    // Loop over each Dino in Array dinoCentral
 
-   Dinos.prototype.compareWeight = function (manKindWeight) {
+    Dinos.prototype.compareWeight = function (manKindWeight) {
 
     for (let i = 1* x; i < dinosCentral.length; i++) {
         if (dinosCentral[i].weight > manKindWeight) {
@@ -100,7 +96,7 @@ function Dinos (species, weight, height, diet, where, when, fact) {
       
   
 
-     Dinos.prototype.compareDiet = function (manKindDiet) {
+    Dinos.prototype.compareDiet = function (manKindDiet) {
 
         for (let i = 1* x; i < dinosCentral.length; i++) {
             if (dinosCentral[i].diet === manKindDiet) {
@@ -117,32 +113,32 @@ function Dinos (species, weight, height, diet, where, when, fact) {
    const dinoDiet = Dinos.prototype.compareDiet(manKindDiet);
    
 
-// Add random fact from dino object and get multiple random elements from the array list
+  // Add random fact from dino object and get multiple random elements from the array list
  
 
 
-let randomFact = [dino1.fact, dino2.fact, dino3.fact, dino4.fact, dino5.fact, dino6.fact, dino7.fact, dinoWeight, dinoHeight, dinoDiet];  
+    let randomFact = [dino1.fact, dino2.fact, dino3.fact, dino4.fact, dino5.fact, dino6.fact, dino7.fact, dinoWeight, dinoHeight, dinoDiet];  
 
 
-let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*randomFact.length))];
+    let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*randomFact.length))];
 
      
 
         // Generate Tiles for each Dino in Array
 
-        const generateTiles = function () {
-            const dinoArray = [dino1, dino2, dino3, dino4, dino5, dino6, dino7, dino8];
+    const generateTiles = function () {
+    const dinoArray = [dino1, dino2, dino3, dino4, dino5, dino6, dino7, dino8];
             
-            const manKindArray = [manKindName];
+    const manKindArray = [manKindName];
             dinoArray.splice(4, 0, manKindArray);
-            const dinoAndManKindArray = dinoArray;
-            const grid = document.getElementById('grid');
-            const manName = document.getElementById('name').value;
+    const dinoAndManKindArray = dinoArray;
+    const grid = document.getElementById('grid');
+    const manName = document.getElementById('name').value;
             
             
             
-            for (let i = 0; i < dinoAndManKindArray.length; i++) {
-                const tile = document.createElement('div');
+        for (let i = 0; i < dinoAndManKindArray.length; i++) {
+            const tile = document.createElement('div');
                 tile.className = 'grid-item';
                 if (i === 4) {
 
@@ -169,7 +165,7 @@ let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*random
         
     
 
-     const removeForm = function () {
+    const removeForm = function () {
        const form = document.getElementById('dino-compare');
           form.style.display = 'none';
     };
@@ -190,13 +186,10 @@ let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*random
 
      // On button click restart the process
 
-    document.getElementById("clickMe").onclick = function clicked(){         
-           
-        
-        window.location.reload(true);           
-                  
-        
-             
+    document.getElementById('clickMe').onclick = function clicked(){        
+                   
+        window.location.reload(true);                      
+                    
 
       };
     
