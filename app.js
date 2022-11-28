@@ -63,9 +63,12 @@ function Dinos (species, weight, height, diet, where, when, fact) {
                             
     
     
-    // Loop over each Dino in Array dinoCentral
+  // Use math.random to generate a random number
 
     let x = Math.floor((Math.random() * 7) + 1);  
+
+
+      // Loop over each Dino in Array dinoCentral
 
    Dinos.prototype.compareWeight = function (manKindWeight) {
 
@@ -182,8 +185,18 @@ let  chooseRandomFact= randomFact => randomFact[Math.floor((Math.random()*random
         generateTiles();
     });
 
-    document.getElementById("clickMe").onclick = function clicked(){
-    	window.location.hash = 'reload';
-    	window.location.reload( true );
-    }
+            
+
+
+     // On button click restart the process
+
+    document.getElementById("clickMe").onclick = function clicked(){         
+           
+        
+        window.location.reload(true);           
+                  
+        
+             
+
+      };
     
